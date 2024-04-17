@@ -17,7 +17,8 @@ class Main{
             System.out.println("4. Verificar se a pilha está vazia (isEmpty)");
             System.out.println("5. Verificar se a pilha está cheia (isFull)");
             System.out.println("6. Imprimir toda pilha (printPilha)");
-            System.out.println("7. Sair");
+            System.out.println("7. Mostrar tamanho da pilha (size)");
+            System.out.println("8. Sair");
             System.out.print("Escolha uma opção: ");
             op = sc.nextInt();
 
@@ -54,14 +55,18 @@ class Main{
                 break;
 
                 case 7:
+                System.out.println("Tamanho da pilha: " + p.size());
+                break;
+
+                case 8:
                 System.out.println("Porgrama encerrado.");
                 break;
 
                 default:
                 System.out.println("Opção inválida. Tente novamente");
             }
-           
-        }while(op!=7);
+
+        }while(op!=8);
 
         sc.close();
     }
