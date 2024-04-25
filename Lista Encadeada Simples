@@ -53,3 +53,23 @@ public boolean isEmpty(){
   return(head == null);
   
 }
+
+public void clear(){
+
+head = null;
+count = 0;
+
+}
+
+public boolean contains(int valor){
+
+  Node aux = head;
+  while(aux.prox != null){
+    aux = aux.prox;
+      if(aux.valor == valor){
+        return valor;
+    }
+  }
+ } 
+}
+
