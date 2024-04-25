@@ -48,6 +48,27 @@ public class ListaEncadeada {
         // ***********************
     }
 
+    public void add(int index, int valor){
+
+      if(index < 0 || index >= count){
+        throw new IndexOutOfBoundsException("Posicao inválida na lista");
+      }
+
+      if(index !=0){
+        index--;
+        Node aux = head;
+          while(index > 0){
+            aux = aux.prox;
+            index--;
+        }
+          node.prox = aux.prox;
+          aux.prox = node;
+      } else {
+            node.prox = head;
+            head = node;
+        }
+    }
+
     public boolean isEmpty() {
         return (head == null);
     }
