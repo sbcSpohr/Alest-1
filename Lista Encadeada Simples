@@ -1,75 +1,87 @@
 public class ListaEncadeada {
 
-  private class Node{
+    private class Node {
 
-  public int valor;
-  public Node prox;
+        public int valor;
+        public Node prox;
 
-  public Node(int valor){
-  this.valor = valor;
-  this.prox = null;  
-  }
-}
-
-private Node head;
-private Node tail;
-private int count;
-
-public ListaEncadeada(){
-
-  this.head = null;
-  this.tail = null;
-  this.count = 0;
-}
-
-public void add(int valor){
-
-Node node = new Node(valor);
-
-  if(isEmpty()){
-    head = node;
-    tail = node;
-  }
-
-  tail.prox = node;
-  tail = node;
-
-  /* à medida que a lista cresce, o tempo necessário para adicionar um novo elemento aumenta linearmente com o tamanho da lista,
-  logo, a implementação usando o tail é menos custosa
-  
-  Node aux = head;
-  while(aux.prox != null){
-    aux = aux.prox;
-  }
-  aux.prox = novo;
-}
-*/
-
-  count++;
-}
-
-public boolean isEmpty(){
-
-  return(head == null);
-  
-}
-
-public void clear(){
-
-head = null;
-count = 0;
-
-}
-
-public boolean contains(int valor){
-
-  Node aux = head;
-  while(aux.prox != null){
-    aux = aux.prox;
-      if(aux.valor == valor){
-        return valor;
+        public Node(int valor) {
+            this.valor = valor;
+            this.prox = null;
+        }
     }
-  }
- } 
-}
 
+    private Node head;
+    private Node tail;
+    private int count;
+
+    public ListaEncadeada() {
+        this.head = null;
+        this.tail = null;
+        this.count = 0;
+    }
+
+    public void add(int valor) {
+      
+        Node node = new Node(valor);
+
+        if (isEmpty()) {
+            head = node;
+            tail = node;
+        }
+
+        tail.prox = node;
+        tail = node;
+        count++;
+
+        // ***********************
+        // OUTRA IMPLEMENTAÇÃO
+        /*
+         Node aux = head;
+         while(aux.prox != null){
+         aux = aux.prox;
+         }
+         aux.prox = novo;
+
+         count++;
+         */
+        // ***********************
+    }
+
+    public boolean isEmpty() {
+        return (head == null);
+    }
+
+    public void clear() {
+        head = null;
+        count = 0;
+    }
+
+    public boolean contains(int valor) {
+        Node aux = head;
+        while (aux != null) {
+            if (aux.valor == valor) {
+                return true;
+            }
+            aux = aux.prox;
+        }
+        return false;
+
+        // ***********************
+        // OUTRA IMPLEMENTAÇÃO
+        /*
+        if(head.valor == valor){
+         return true;
+         }
+         Node aux = head;
+         while(aux.prox!=null){
+         aux = aux.prox;
+         if(aux.valor == valor){
+         return true;
+         }
+         }
+         return false;
+         */
+        // ***********************
+    }
+}
