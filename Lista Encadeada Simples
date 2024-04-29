@@ -1,4 +1,4 @@
-public class ListaEncadeada {
+ public class ListaEncadeada {
 
     private class Node {
 
@@ -30,7 +30,7 @@ public class ListaEncadeada {
             tail = node;
         }
 
-        tail.prox = node;
+        tail.prox = node; //o proximo do tail (tail.prox) sera o novo node //está atribuindo o novo nó (node) ao próximo nó do atual último nó da lista (tail).
         tail = node;
         count++;
 
