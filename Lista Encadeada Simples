@@ -1,4 +1,12 @@
- public class ListaEncadeada {
+//uma maneira de interpretar os .prox é:
+
+//aux.prox = node
+
+//*o proximo do aux *sera* o node*
+
+
+
+public class ListaEncadeada {
 
     private class Node {
 
