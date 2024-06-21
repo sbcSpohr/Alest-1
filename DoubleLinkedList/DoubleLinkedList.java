@@ -1,12 +1,12 @@
-class DoubleLinkedList<T> {
+class DoubleLinkedList {
 
     private class Node {
 
-        T valor;
+        int valor;
         Node next;
         Node prev;
 
-        public Node(T valor) {
+        public Node(int valor) {
             this.valor = valor;
             next = null;
             prev = null;
@@ -23,7 +23,7 @@ class DoubleLinkedList<T> {
         count = 0;
     }
 
-    public void addFirst(T e) {
+    public void addFirst(int e) {
 
         Node node = new Node(e);
 
@@ -43,7 +43,7 @@ class DoubleLinkedList<T> {
         count++;
     }
 
-    public void addLast(T e) {
+    public void addLast(int e) {
 
         Node node = new Node(e);
 
@@ -63,11 +63,11 @@ class DoubleLinkedList<T> {
         count++;
     }
 
-    public void addByIndex(int index, T e) {
+    public void addByIndex(int index, int e) {
 
         if (index < 0 || index >= count) {
             throw new IllegalArgumentException(
-                    "índice inválido. O índice não pode ser menor que zero e não pode ser maior ou igual ao tamanho da lista.");
+                    "índice inválido. O índice não pode ser < 0 e não pode ser >= ao tamanho da lista.");
         }
 
         Node node = new Node(e);
@@ -98,9 +98,9 @@ class DoubleLinkedList<T> {
         count++;
     }
 
-    public T removeFirst() {
+    public int removeFirst() {
 
-        T data = head.valor;
+        int data = head.valor;
 
         if (count == 0) {
             head = null;
@@ -113,9 +113,9 @@ class DoubleLinkedList<T> {
         return data;
     }
 
-    public T removeLast() {
+    public int removeLast() {
 
-        T data = tail.valor;
+        int data = tail.valor;
 
         if (count == 0) {
             head = null;
@@ -129,27 +129,47 @@ class DoubleLinkedList<T> {
         return data;
     }
 
+    public void removeByIndex(int index) {
+
+        if (index <= 0 || index >= count) {
+            throw new IllegalArgumentException(
+                    "índice inválido. O índice não pode ser <= 0 e não pode ser >= ao tamanho da lista.");
+        }
+
+        if (index > 0) {
+            index--;
+            Node aux = head;
+            while (index > 0) {
+                aux = aux.next;
+                index--;
+            }
+            Node die = aux.next;
+            aux.next = die.next;
+            die.next.prev = aux;
+            die.next = null;
+            die.prev = null;
+        }
+        count--;
+    }
+
     public int size() {
 
         return count;
     }
 
-    public T removeByIndex(int index) {
+    public boolean isEmpty(){
 
-        if (index < 0 || index >= count) {
-            throw new IllegalArgumentException(
-                    "índice inválido. O índice não pode ser menor que zero e não pode ser maior ou igual ao tamanho da lista.");
-        }
-
-        return null;
+        return(count == 0);
     }
-
+    
     public void showList() {
 
         Node aux = head;
+        int pos = 0;
         while (aux != null) {
-            System.out.println("Valor: " + aux.valor + "\n");
+            System.out.println("Índice: " + pos + " -- Valor: " + aux.valor + "\n");
             aux = aux.next;
+            pos++;
         }
     }
 }

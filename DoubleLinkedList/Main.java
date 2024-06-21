@@ -6,7 +6,7 @@ class Main{
 
 
         Scanner sc = new Scanner(System.in);
-        DoubleLinkedList<Integer> dll = new DoubleLinkedList<>();
+        DoubleLinkedList dll = new DoubleLinkedList();
         int op;
 
         do {
@@ -17,7 +17,9 @@ class Main{
             System.out.println("[4] -> Remover elemento [primeira posição da lista].");
             System.out.println("[5] -> Remover elemento [última posição da lista].");
             System.out.println("[6] -> Remover elemento [por índice]");
-            System.out.println("[7] -> Mostrar lista na tela.");
+            System.out.println("[7] -> Tamanho da lista.");
+            System.out.println("[8] -> Ver se a lista está vazia.");
+            System.out.println("[9] -> Mostrar lista na tela.");
             System.out.println("[0] -> Sair");
             System.out.print("Escolha uma opção: ");
             op = sc.nextInt();
@@ -25,46 +27,62 @@ class Main{
 
             switch(op){
 
-                int elemento;
 
                 case 1:
-                System.out.println("Digite o elemento a ser adicionado: ");
-                elemento = sc.nextInt();
+                System.out.print("Digite o elemento a ser adicionado [início]: ");
+                int elemento = sc.nextInt();
                 dll.addFirst(elemento);
-                System.out.println("\nElemento adicionado\n");
+                System.out.println("\n**Elemento adicionado**");
                 break;
 
                 case 2:
-                System.out.println("Digite o index do elemento a ser removido: ");
+                System.out.print("Digite o elemento a ser adicionado [final]: ");
                 elemento = sc.nextInt();
                 dll.addLast(elemento);
-                System.out.println("\nElemento adicionado\n");
+                System.out.println("\n**Elemento adicionado**");
                 break;
 
                 case 3:
-                dll.removeFirst();
-                System.out.println("\nElemento removido\n");
-                break;
-
-                case 4:
-                dll.removeLast();
-                System.out.println("\nElemento removido\n");
-                break;
-
-                case 5:
-                dll.showList();
-                break;
-
-                case 6:
-                System.out.println("Informe o index que deseja inserir o elemento.");
+                System.out.print("Digite o índice que deseja inserir o elemento: ");
                 int index = sc.nextInt();
-                System.out.println("Informe o elemento que deseja inserir.");
+                System.out.print("Digite o elemento a ser adicionado: ");
                 elemento = sc.nextInt();
                 dll.addByIndex(index, elemento);
                 break;
 
+                case 4:
+                dll.removeFirst();
+                System.out.println("\n**Elemento removido**");
+                break;
+
+                case 5:
+                dll.removeLast();
+                System.out.println("\n**Elemento removido**");
+                break;
+
+                case 6:
+                System.out.print("Digite o índice que deseja remover o elemento: ");
+                index = sc.nextInt();
+                dll.removeByIndex(index);                
+                break;
+
+                case 7:
+                System.out.println("Número de elementos:" + dll.size());
+                break;
+
+                case 8:
+                if(dll.isEmpty()){System.out.println("\n**A lista está vazia**");}
+                else {
+                    System.out.println("\n**A lista não está vazia**");
+                }
+                break;
+                
+                case 9:
+                dll.showList();
+                break;
+
                 default:
-                System.out.println("Opção inválida. Tente novamente");
+                System.out.println("Opção inválida. Tente novamente.");
             }
 
         }while(op!=0);
