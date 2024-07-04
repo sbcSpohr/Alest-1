@@ -167,4 +167,71 @@ public class LinkedList {
             pos++;
         }
     }
+
+
+    /*
+    **************************************
+     //////////////EXERCISES//////////////
+    **************************************
+     */
+
+    public int findMaxValue() {
+
+        if(head == null){
+            throw new RuntimeException("Lista vazia, não é possível comparar.")
+        }
+
+        Node aux = head;
+        int max = head.valor;
+
+        while (aux != null) {
+            if (max < aux.valor) {
+                max = aux.valor;
+            }
+            aux = aux.next;
+        }
+        return max;
+    }
+
+    public int findMinValue() {
+
+        if(head == null){
+            throw new RuntimeException("Lista vazia, não é possível comparar.")
+        }
+
+        Node aux = head;
+        int min = head.valor;
+
+        while (aux != null) {
+            if (min > aux.valor) {
+                min = aux.valor;
+            }
+            aux = aux.next;
+        }
+        return min;
+    }
+
+    public int midNode() {
+
+        if (head == null) {
+            throw new RuntimeException("Lista vazia, não é possível visualizar nodo do meio.");
+        }
+
+        int pos = 0;
+        Node aux = head;
+
+        while (aux != null) {
+            pos++;
+            aux = aux.next;
+        }
+        int mid = pos / 2;
+
+        aux = head;
+
+        for (int i = 0; i < mid; i++) {
+            aux = aux.next;
+        }
+        return aux.valor;
+    }
+
 }

@@ -18,6 +18,10 @@ class Main {
             System.out.println("[7] -> Esvaziar a lista.");
             System.out.println("[8] -> Verificar se a lista está vazia.");
             System.out.println("[9] -> Visualizar lista.");
+            System.out.println("\n******EXERCÍCIOS******:");
+            System.out.println("[10] -> Encontrar maior valor da lista.");
+            System.out.println("[11] -> Encontrar menor valor da lista.");
+            System.out.println("[12] -> Verificar elemento do meio da lista.");
             System.out.print("Escolha uma opção: ");
             op = sc.nextInt();
 
@@ -79,6 +83,21 @@ class Main {
                 case 9:
                     System.out.println("\n");
                     ll.showList();
+                    break;
+
+                case 10:
+                    System.out.println("\n");
+                    System.out.println("\n**Maior valor da lista: " + ll.findMaxValue());
+                    break;
+
+                case 11:
+                    System.out.println("\n");
+                    System.out.println("\n**Menor valor da lista: " + ll.findMinValue());
+                    break;
+
+                case 12:
+                    System.out.println("\n");
+                    System.out.println("\n**Elemento do meio da lista: " + ll.midNode());
                     break;
 
                 default:
